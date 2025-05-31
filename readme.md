@@ -251,10 +251,3 @@ E adicione:
 
 ---
 
-## 10. Contribuições
-Este projeto é voltado para facilitar tarefas repetitivas e pode ser expandido para enviar outros tipos de relatórios, integrar com bancos de dados, etc.
-
----
-
-## 📈 Contato
-Criado para fins educacionais e automatização corporativa interna. Para melhorias, contribuições ou dúvidas, entre em contato com o desenvolvedor do sistema.
