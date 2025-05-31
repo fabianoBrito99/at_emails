@@ -73,17 +73,135 @@ SMTP_SENHA=senha_de_app_segura
 
 Nunca envie esse arquivo para o GitHub! Coloque ele no `.gitignore`.
 
+
+### 🔐 Como gerar uma senha de aplicativo no Gmail:
+
+#### Se tiver ativar o 2FA:
+- Acesse:[app PassWord](https://myaccount.google.com/apppasswords)
+
+- Se estiver com 2FA ativado, você verá uma tela para criar Senhas de app (escolha "Mail" e "Outro → Python").
+- Gere uma senha de 16 caracteres para “Mail” com nome personalizado (ex: Automação Python)
+- Use essa senha no campo `SMTP_SENHA` do `.env
+
+#### Se não tiver ativado o 2FA:
+
+1. Vá em [Google Security](https://myaccount.google.com/security)
+2. Ative a verificação em duas etapas
+3. Após isso, acesse a opção **Senhas de app**
+4. Gere uma senha de 16 caracteres para “Mail” com nome personalizado (ex: Automação Python)
+5. Use essa senha no campo `SMTP_SENHA` do `.env`
+
 ---
 
 ## 6. O que são funções em Python?
 
 Funções são blocos de código reutilizáveis. Por exemplo:
+#### Python
 ```python
 def saudacao(nome):
     print(f"Olá, {nome}!")
 
 saudacao("Maria")
 ```
+
+- Simples, sem declarar tipo de dado, nem ponto e vírgula
+
+#### C
+```C:
+
+#include <stdio.h>
+
+void saudacao(char nome[]) {
+    printf("Olá, %s!
+", nome);
+}
+
+int main() {
+    saudacao("Maria");
+    return 0;
+}
+```
+
+- Tipagem obrigatória, uso de ponto e vírgula, e função main()
+
+#### Java
+```Java:
+
+public class Saudacao {
+    public static void saudacao(String nome) {
+        System.out.println("Olá, " + nome + "!");
+    }
+
+    public static void main(String[] args) {
+        saudacao("Maria");
+    }
+}
+```
+- Uso de classes, métodos estáticos e sintaxe mais detalhada
+
+#### C#
+```C#
+using System;
+
+class Saudacao {
+    static void Saudacao(string nome) {
+        Console.WriteLine($"Olá, {nome}!");
+    }
+
+    static void Main() {
+        Saudacao("Maria");
+    }
+}
+
+```
+- Uso de classes, métodos estáticos e sintaxe mais detalhada
+
+#### Assembly
+```Assembly
+section .data
+    msg db 'Olá, Maria!', 0xA   ; string + quebra de linha
+    len equ $ - msg             ; comprimento da string
+
+section .text
+    global _start
+
+_start:
+    ; syscall write (stdout)
+    mov edx, len        ; tamanho da mensagem
+    mov ecx, msg        ; endereço da string
+    mov ebx, 1          ; file descriptor (stdout)
+    mov eax, 4          ; syscall número 4: sys_write
+    int 0x80            ; chamada de sistema
+
+    ; syscall exit
+    mov eax, 1          ; syscall número 1: sys_exit
+    xor ebx, ebx        ; código de saída 0
+    int 0x80
+
+```
+### 🧾 O que isso faz:
+- Define uma mensagem `"Olá, Maria!"` na seção de dados.
+
+- Usa instruções para chamar o serviço do sistema operacional e escreve no terminal.
+
+- Depois, termina o programa com `sys_exit`.
+
+⚠️ Assembly é muito próximo do hardware e exige conhecimento de registradores (eax, ebx, etc.) e interrupções do sistema (int 0x80).
+
+
+### ✅ Moral da comparação:
+
+- Python: simples, direto, ideal para automações rápidas.
+
+- C/Java/C#: mais verbosos, exigem estrutura, mas poderosos em aplicações maiores.
+
+- Assembly: extremamente próximo do hardware, difícil de ler e escrever.
+  
+
+
+Funções deste projeto:
+
+Funções são blocos de código reutilizáveis, que organizam e encapsulam comportamentos.
 
 coloque exemplo da função, e explique elas...
 
