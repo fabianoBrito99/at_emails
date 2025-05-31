@@ -21,7 +21,5 @@ ENV/
 
 # Arquivos de ambiente e dados sensíveis
 .env
-registro/emails_enviados.xlsx
 
-# Dados de teste ou de uso temporário
-emails/
+
