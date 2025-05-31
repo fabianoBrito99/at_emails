@@ -1,0 +1,27 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# VSCode settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Excel temporários do sistema
+~$*
+
+# Arquivos de ambiente e dados sensíveis
+.env
+registro/emails_enviados.xlsx
+
+# Dados de teste ou de uso temporário
+emails/
