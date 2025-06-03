@@ -250,4 +250,71 @@ E adicione:
 - O arquivo `registro/emails_enviados.xlsx` mostra quais já foram enviados.
 
 ---
+# ideias de Prommpt:
 
+
+``` markdown
+Prompt completo:
+Olá! Preciso que você me ajude a criar um projeto em Python que automatize o envio de arquivos PDF por e-mail para diferentes agências.
+
+O sistema deve funcionar da seguinte forma:
+
+Tenho uma pasta emails/2025-05/ com arquivos como 0002_dlo-1.pdf, 0003_dlo-2.pdf, etc.
+
+Existe uma planilha config/index_dlo.xlsx com duas colunas: agencia e email, onde informo qual e-mail corresponde a cada agência.
+
+O script deve ler essa pasta, agrupar os arquivos por agência, e enviar por e-mail os arquivos correspondentes.
+
+O envio deve ser feito via SMTP com autenticação, usando os dados de um arquivo .env (por segurança, nada de senha no código).
+
+Após cada envio, o script deve registrar os arquivos enviados em um Excel chamado registro/emails_enviados.xlsx, para evitar reenvio no futuro.
+
+Quero que o projeto seja dividido da seguinte forma:
+
+main.py: chama apenas uma função principal
+
+modules/envio.py: faz todo o processo de leitura, agrupamento e envio de e-mails
+
+modules/registro.py: funções para ler e salvar o controle de envio em Excel
+
+Também preciso de:
+
+Um .env de exemplo com SMTP_SERVIDOR, SMTP_PORTA, SMTP_EMAIL, SMTP_SENHA
+
+Um .gitignore que exclua .env, __pycache__, e arquivos temporários como emails_enviados.xlsx
+
+Um README.md completo explicando como o projeto funciona, como gerar senha de app no Gmail, como usar cron, e comparando a sintaxe de funções em Python, C, Java, C#, Assembly
+
+Por favor, escreva o código com qualidade e boas práticas, e pense que o usuário final pode ser leigo, então comente o necessário.
+```
+
+``` markdown
+Oi! Preciso montar um projeto em Python que envie automaticamente e-mails com arquivos PDF para agências diferentes.
+
+Tenho uma planilha index_dlo.xlsx com os e-mails de cada agência, e uma pasta emails/ com arquivos tipo 0002_dlo.pdf, 0003_dlo-1.pdf, etc. Cada agência tem seus arquivos.
+
+A ideia é: o script lê esses arquivos, identifica a agência, pega o e-mail correspondente na planilha e envia todos os PDFs dela num e-mail com assunto e corpo padrão.
+
+Depois que enviar, preciso registrar isso em um Excel (emails_enviados.xlsx) para garantir que não envie o mesmo arquivo de novo.
+
+Quero que o código seja separado assim:
+
+main.py: só chama a função principal
+
+envio.py: faz o envio dos e-mails e checagem dos PDFs
+
+registro.py: carrega e salva o controle de envios
+
+Usa variáveis de ambiente .env com as infos do SMTP (nada de senha no código).
+
+Me entrega também:
+
+.gitignore com o básico e protegendo .env e arquivos gerados
+
+Um README.md que explique tudo de forma simples (inclusive como gerar a senha de app do Gmail)
+
+Comparação da função em Python com C, Java, C# e Assembly (só pra mostrar como Python é mais simples)
+
+Pode gerar tudo isso com boas práticas e código limpo? Obrigado!
+
+```
