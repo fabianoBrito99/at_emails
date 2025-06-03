@@ -198,15 +198,60 @@ _start:
 - Assembly: extremamente próximo do hardware, difícil de ler e escrever.
   
 
+## 🔑 Diferença entre parâmetro e argumento:
+Para entender como uma função funciona, é importante saber o que são **parâmetros** e **argumentos**.
 
-Funções deste projeto:
+- **Parâmetro** é como se fosse uma caixinha que a função espera receber para funcionar. Ele é definido no momento em que a função é criada. Pense como um espaço reservado para um valor.
 
-Funções são blocos de código reutilizáveis, que organizam e encapsulam comportamentos.
+- **Argumento** é o valor real que você envia para a função quando a chama. É como colocar um valor real dentro da caixinha.
 
-Neste projeto, temos funções como:
-- `processar_emails()`
-- `enviar_email()`
-- `carregar_registro()`
+Exemplo para entender melhor:
+```python
+def saudacao(nome):  # "nome" é o parâmetro
+    print(f"Olá, {nome}!")
+
+saudacao("Maria")     # "Maria" é o argumento
+```
+[...]
+
+## 📌 Funções utilizadas no projeto:
+Cada uma dessas funções está definida em um arquivo `.py`. Abaixo está o início de cada função com explicação de seu propósito:
+
+### `processar_emails()`
+```python
+def processar_emails():
+    index_df = pd.read_excel(CAMINHO_INDEX, dtype=str)
+    # ... restante da lógica
+```
+- Percorre as pastas com os PDFs, identifica os e-mails por agência, envia os arquivos e atualiza o log.
+
+### `enviar_email(destinatario, assunto, corpo, lista_anexos)`
+```python
+def enviar_email(destinatario, assunto, corpo, lista_anexos):
+    msg = EmailMessage()
+    msg['Subject'] = assunto
+    # ... restante da lógica
+```
+- Envia o e-mail com os PDFs anexados usando servidor SMTP. Recebe como argumentos os dados da mensagem e anexos.
+
+### `carregar_registro(caminho)`
+```python
+def carregar_registro(caminho):
+    if os.path.exists(caminho):
+        return pd.read_excel(caminho, dtype=str, engine='openpyxl')
+    else:
+        return pd.DataFrame(columns=['mes', 'agencia', 'arquivo'])
+```
+- Carrega o Excel com o controle de envios ou cria um novo DataFrame vazio.
+
+### `salvar_registro(caminho, df)`
+```python
+def salvar_registro(caminho, df):
+    os.makedirs(os.path.dirname(caminho), exist_ok=True)
+    df.to_excel(caminho, index=False, engine='openpyxl')
+```
+- Salva o DataFrame com os dados atualizados no Excel para controle de envios.
+
 
 ---
 
