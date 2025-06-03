@@ -283,7 +283,6 @@ Um .env de exemplo com SMTP_SERVIDOR, SMTP_PORTA, SMTP_EMAIL, SMTP_SENHA
 
 Um .gitignore que exclua .env, __pycache__, e arquivos temporários como emails_enviados.xlsx
 
-Um README.md completo explicando como o projeto funciona, como gerar senha de app no Gmail, como usar cron, e comparando a sintaxe de funções em Python, C, Java, C#, Assembly
 
 Por favor, escreva o código com qualidade e boas práticas, e pense que o usuário final pode ser leigo, então comente o necessário.
 ```
@@ -310,10 +309,6 @@ Usa variáveis de ambiente .env com as infos do SMTP (nada de senha no código).
 Me entrega também:
 
 .gitignore com o básico e protegendo .env e arquivos gerados
-
-Um README.md que explique tudo de forma simples (inclusive como gerar a senha de app do Gmail)
-
-Comparação da função em Python com C, Java, C# e Assembly (só pra mostrar como Python é mais simples)
 
 Pode gerar tudo isso com boas práticas e código limpo? Obrigado!
 
