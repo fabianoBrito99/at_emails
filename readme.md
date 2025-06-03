@@ -107,7 +107,7 @@ saudacao("Maria")
 - Simples, sem declarar tipo de dado, nem ponto e vírgula
 
 #### C
-```C:
+```C
 
 #include <stdio.h>
 
@@ -125,7 +125,7 @@ int main() {
 - Tipagem obrigatória, uso de ponto e vírgula, e função main()
 
 #### Java
-```Java:
+```Java
 
 public class Saudacao {
     public static void saudacao(String nome) {
