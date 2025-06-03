@@ -203,8 +203,6 @@ Funções deste projeto:
 
 Funções são blocos de código reutilizáveis, que organizam e encapsulam comportamentos.
 
-coloque exemplo da função, e explique elas...
-
 Neste projeto, temos funções como:
 - `processar_emails()`
 - `enviar_email()`
